@@ -1,30 +1,30 @@
-# my-bookShelf
+# 📚 My BookShelf - Application Vue.js + Tailwind CSS
 
-This template should help get you started developing with Vue 3 in Vite.
+Bienvenue dans **My BookShelf** !  
+C'est une application de gestion personnelle de lectures pour les amoureuses et amoureux de livres 📖✨
 
-## Recommended IDE Setup
+> Développé avec ❤️ par Queen B.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Customize configuration
+## 🎯 Objectif du projet
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+**My BookShelf** permet de :
 
-## Project Setup
+- 🔎 Chercher des livres en utilisant l'API publique d'OpenLibrary
+- ➕ Ajouter des livres à sa bibliothèque personnelle
+- ⭐ Noter les livres lus
+- 💬 Ajouter un commentaire personnalisé
+- 🗑️ Supprimer un livre de sa bibliothèque
+- 📦 Sauvegarder sa bibliothèque localement grâce à LocalStorage
 
-```sh
-npm install
-```
+---
 
-### Compile and Hot-Reload for Development
+## 🛠️ Technologies utilisées
 
-```sh
-npm run dev
-```
+- [Vue.js 3](https://vuejs.org/) - Framework JavaScript moderne
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS pour un design rapide et responsive
+- [OpenLibrary API](https://openlibrary.org/developers/api) - Source de données pour récupérer les livres
+- [LocalStorage](https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage) - Sauvegarde locale des livres
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-# my-bookshelf
+---
