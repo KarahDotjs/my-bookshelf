@@ -1,5 +1,7 @@
 <script setup>
 import SearchBar from './SearchBar.vue'
+import BookCard from './BookCard.vue'
+
 import { ref } from 'vue'
 
 
@@ -7,14 +9,18 @@ const searchQuery = ref('')
 
 const handleSearch = (userInput) => {
   searchQuery.value = userInput
+  fetchBooks()
+
 }
 const books = ref([])
 
-async function fetchBook() {
+async function fetchBooks() {
   const response = await fetch(`https://openlibrary.org/search.json?q=${searchQuery.value}`)
   const data = await response.json();
+  console.log(data);
   books.value = data.docs
 }
+
 
 </script>
 
@@ -24,7 +30,10 @@ async function fetchBook() {
       My BookShelf 📚
     </h1>
     <SearchBar @rechercher="handleSearch" />
-
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
+      <BookCard v-for="book in books" :key="book.key" :title="book.title" :author="book.author_name"
+        :coverId="book.cover_i" />
+    </div>
   </div>
 
 
