@@ -3,7 +3,8 @@
 Bienvenue dans **My BookShelf** !  
 C'est une application de gestion personnelle de lectures pour les amoureuses et amoureux de livres 📖✨
 
-> Développé avec ❤️ par Queen B.
+> Développé avec ❤️ Bintou KARAMOKO
+> 
 
 ---
 
