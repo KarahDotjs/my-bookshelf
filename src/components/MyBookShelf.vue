@@ -1,5 +1,14 @@
 <script setup>
-import SearchBar from './components/SearchBar.vue'
+import SearchBar from './SearchBar.vue'
+import { ref } from 'vue'
+
+
+const searchTerm = ref('')
+
+const handleSearch = (userInput) => {
+  searchTerm.value = userInput
+}
+
 </script>
 
 <template>
@@ -7,7 +16,7 @@ import SearchBar from './components/SearchBar.vue'
     <h1 class="text-3xl font-bold  flex justify-center mt-10">
       My BookShelf 📚
     </h1>
-    <input type="text">
+    <SearchBar @rechercher="handleSearch" />
 
   </div>
 
