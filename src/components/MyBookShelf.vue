@@ -8,6 +8,13 @@ const searchTerm = ref('')
 const handleSearch = (userInput) => {
   searchTerm.value = userInput
 }
+const books = ref([])
+
+async function fetchBook() {
+  const response = await fetch('')
+  const data = await response.json();
+  return data;
+}
 
 </script>
 
