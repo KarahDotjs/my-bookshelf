@@ -3,17 +3,17 @@ import SearchBar from './SearchBar.vue'
 import { ref } from 'vue'
 
 
-const searchTerm = ref('')
+const searchQuery = ref('')
 
 const handleSearch = (userInput) => {
-  searchTerm.value = userInput
+  searchQuery.value = userInput
 }
 const books = ref([])
 
 async function fetchBook() {
-  const response = await fetch('')
+  const response = await fetch(`https://openlibrary.org/search.json?q=${searchQuery.value}`)
   const data = await response.json();
-  return data;
+  books.value = data.docs
 }
 
 </script>
