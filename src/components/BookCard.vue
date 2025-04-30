@@ -29,7 +29,8 @@ const addThisBook = () => {
       class="mx-auto mt-4 h-48 object-cover" />
     <button @click="addThisBook"
       class="mt-4 bg-blue-400 text-white py-1 px-3 rounded hover:bg-green-600 text-sm font-bold">
-      ➕ Ajouter à ma bibliothèque
+      <font-awesome-icon icon="plus"" />
+      Ajouter à ma bibliothèque
     </button>
 
   </div>
