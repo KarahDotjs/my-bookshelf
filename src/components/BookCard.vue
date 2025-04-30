@@ -5,7 +5,16 @@ defineProps({
   coverId: Number
 })
 
+const emit = defineEmits(['addToLibrary'])
 
+
+const addThisBook = () => {
+  emit('addToLibrary', {
+    title,
+    author,
+    coverId
+  })
+}
 
 
 </script>
@@ -18,7 +27,13 @@ defineProps({
     </p>
     <img v-if="coverId" :src="`https://covers.openlibrary.org/b/id/${coverId}-M.jpg`" alt="Couverture"
       class="mx-auto mt-4 h-48 object-cover" />
+    <button @click="addThisBook"
+      class="mt-4 bg-blue-400 text-white py-1 px-3 rounded hover:bg-green-600 text-sm font-bold">
+      ➕ Ajouter à ma bibliothèque
+    </button>
+
   </div>
+
 </template>
 
 <style scoped></style>
