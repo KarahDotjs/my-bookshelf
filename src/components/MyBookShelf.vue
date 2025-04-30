@@ -24,7 +24,11 @@ async function fetchBooks() {
 }
 
 const addToLibrary = (book) => {
-  myLibrary.value.push(book)
+  myLibrary.value.push({
+    ...book,
+    comment: '',
+    rating: null
+  })
 }
 
 
