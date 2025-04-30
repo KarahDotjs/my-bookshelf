@@ -4,6 +4,10 @@ defineProps({
   author: Array,
   coverId: Number
 })
+
+
+
+
 </script>
 
 <template>

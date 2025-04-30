@@ -14,11 +14,17 @@ const handleSearch = (userInput) => {
 }
 const books = ref([])
 
+const myLibrary = ref([])
+
 async function fetchBooks() {
   const response = await fetch(`https://openlibrary.org/search.json?q=${searchQuery.value}`)
   const data = await response.json();
   console.log(data);
   books.value = data.docs
+}
+
+const addToLibrary = (book) => {
+  myLibrary.value.push(book)
 }
 
 
@@ -31,8 +37,8 @@ async function fetchBooks() {
     </h1>
     <SearchBar @rechercher="handleSearch" />
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
-      <BookCard v-for="book in books" :key="book.key" :title="book.title" :author="book.author_name"
-        :coverId="book.cover_i" />
+      <BookCard v-for="book in books" :key="book.key" :title="book.title" :author="book.author_name" :coverId="book.cover_i
+        " @add="addToLibrary" />
     </div>
   </div>
 
