@@ -9,8 +9,10 @@ const suggestions = ref([]);
 
 
 const emitSearch = () => {
-  emit('rechercher', searchInput.value)
-}
+  emit('rechercher', searchInput.value);
+  suggestions.value = []; // cacher les suggestions
+};
+
 
 const selectSuggestion = (suggestion) => {
   searchInput.value = suggestion;
