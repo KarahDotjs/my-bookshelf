@@ -2,7 +2,6 @@
 import SearchBar from "./SearchBar.vue";
 import BookCard from "./BookCard.vue";
 
-
 import { ref } from "vue";
 
 const searchQuery = ref("");
@@ -17,24 +16,24 @@ const booksOfTheMonth = ref([]);
 
 const fetchBooksOfTheMonth = async () => {
   try {
-    const response = await fetch('https://openlibrary.org/search.json?q=bestseller');
+    const response = await fetch(
+      "https://openlibrary.org/search.json?q=bestseller"
+    );
     const data = await response.json();
     // On récupère seulement ceux qui ont une couverture
     booksOfTheMonth.value = data.docs
-      .filter(book => book.cover_i)
+      .filter((book) => book.cover_i)
       .slice(0, 3); // max 5 livres
   } catch (error) {
     console.error("Erreur lors du chargement des livres du mois :", error);
   }
 };
 
-import { onMounted } from 'vue';
+import { onMounted } from "vue";
 
 onMounted(() => {
   fetchBooksOfTheMonth();
 });
-
-
 
 // const myLibrary = ref([]);
 
@@ -48,14 +47,10 @@ async function fetchBooks() {
 
 const addTolibray = (book) => { };
 </script>
-
 <template>
   <div class="min-h-screen bg-gray-100 py-8">
     <div class="max-w-screen-lg mx-auto px-4">
-
-      <h1 class="text-3xl font-bold text-center mt-10">
-        My BookShelf 📚
-      </h1>
+      <h1 class="text-3xl font-bold text-center mt-10 mb-10">My BookShelf 📚</h1>
 
       <SearchBar @rechercher="handleSearch" />
 
@@ -73,11 +68,8 @@ const addTolibray = (book) => { };
             :coverId="book.cover_i" />
         </div>
       </div>
-
-
     </div>
   </div>
 </template>
-
 
 <style scoped></style>

@@ -45,26 +45,26 @@ const fetchSuggestions = async () => {
 </script>
 
 <template>
-  <div class="flex justify-center mb-8 mt-8">
-    <div class="relative w-1/2">
+  <div class="bg-white p-6 rounded-2xl shadow-lg w-full max-w-xl mx-auto">
+    <div class="flex">
       <input v-model="searchInput" @input="fetchSuggestions" type="text" placeholder="Search for a book..."
-        class="border border-gray-300 p-2 rounded-l w-full" />
-
-      <!-- Suggestions -->
-      <div v-if="suggestions.length" class="absolute z-10 bg-white border border-gray-300 rounded-b shadow w-full mt-1">
-        <ul>
-          <li v-for="(suggestion, index) in suggestions" :key="index" @click="selectSuggestion(suggestion)"
-            class="px-4 py-2 hover:bg-blue-100 cursor-pointer">
-            {{ suggestion }}
-          </li>
-        </ul>
-      </div>
+        class="border border-gray-300 p-2 rounded-l w-full " />
+      <button @click="emitSearch" class="bg-blue-500 hover:bg-blue-600 text-white font-bold p-2 rounded-r">
+        Search
+      </button>
     </div>
 
-    <button @click="emitSearch" class="bg-blue-500 hover:bg-blue-600 text-white font-bold p-2 rounded-r">
-      Search
-    </button>
+    <!-- Suggestions -->
+    <div v-if="suggestions.length" class="absolute z-10 bg-white border border-gray-300 rounded-b shadow w-full mt-1">
+      <ul>
+        <li v-for="(suggestion, index) in suggestions" :key="index" @click="selectSuggestion(suggestion)"
+          class="px-4 py-2 hover:bg-blue-100 cursor-pointer">
+          {{ suggestion }}
+        </li>
+      </ul>
+    </div>
   </div>
+
 </template>
 
 
