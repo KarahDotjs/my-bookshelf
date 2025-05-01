@@ -22,7 +22,7 @@ const fetchBooksOfTheMonth = async () => {
     // On récupère seulement ceux qui ont une couverture
     booksOfTheMonth.value = data.docs
       .filter(book => book.cover_i)
-      .slice(0, 5); // max 5 livres
+      .slice(0, 3); // max 5 livres
   } catch (error) {
     console.error("Erreur lors du chargement des livres du mois :", error);
   }
@@ -66,8 +66,8 @@ const addTolibray = (book) => { };
       </div>
 
       <!-- Livres du mois -->
-      <div class="mt-12 bg-white rounded-xl shadow px-6 py-10">
-        <h2 class="text-2xl font-bold mb-4 text-center">📚 Livre(s) du mois</h2>
+      <div class="mt-12 bg-gray-200 rounded-xl shadow px-6 py-10">
+        <h2 class="text-2xl font-bold mb-4 text-center">📚 Livres du mois</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           <BookCard v-for="book in booksOfTheMonth" :key="book.key" :title="book.title" :author="book.author_name"
             :coverId="book.cover_i" />
