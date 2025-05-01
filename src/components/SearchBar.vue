@@ -48,7 +48,7 @@ const fetchSuggestions = async () => {
 </script>
 
 <template>
-  <div class="bg-white p-6 rounded-2xl shadow-lg w-full max-w-xl mx-auto">
+  <div class="bg-white p-6 rounded-2xl shadow-lg w-full max-w-xl mx-auto relative">
     <div class="flex">
       <input v-model="searchInput" @input="fetchSuggestions" type="text" placeholder="Search for a book..."
         class="border border-gray-300 p-2 rounded-l w-full " />
