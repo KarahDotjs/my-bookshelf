@@ -50,7 +50,8 @@ const addTolibray = (book) => { };
 <template>
   <div class="min-h-screen bg-gray-100 py-8">
     <div class="max-w-screen-lg mx-auto px-4">
-      <h1 class="text-3xl font-bold text-center mt-10 mb-10">My BookShelf 📚</h1>
+      <h1 class="text-3xl font-bold text-center mt-10 mb-10">My BookShelf - Mon étagère de livres</h1>
+
 
       <SearchBar @rechercher="handleSearch" />
 

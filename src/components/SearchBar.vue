@@ -16,6 +16,7 @@ const emitSearch = () => {
 };
 
 
+
 const selectSuggestion = (suggestion) => {
   searchInput.value = suggestion;
   suggestions.value = []; // cacher les suggestions
@@ -26,7 +27,7 @@ const selectSuggestion = (suggestion) => {
 const fetchSuggestions = async () => {
   try {
     // rappel: construire l'URL en fonction de ce que tape l'utilisateur avec le encodeURIComponent
-    const url = `https://openlibrary.org/search.json?q=${encodeURIComponent(searchInput.value)}`;
+    const url = `https://openlibrary.org/search.json?q=${encodeURIComponent(searchInput.value)}&language=fre`;
 
     // ensuite je dois faire la requête vers l'API
     const response = await fetch(url);
@@ -58,6 +59,7 @@ const fetchSuggestions = async () => {
 
     <!-- Suggestions -->
     <div v-if="suggestions.length" class="absolute z-10 bg-white border border-gray-300 rounded-b shadow w-full mt-1">
+
       <ul>
         <li v-for="(suggestion, index) in suggestions" :key="index" @click="selectSuggestion(suggestion)"
           class="px-4 py-2 hover:bg-blue-100 cursor-pointer">
@@ -65,6 +67,10 @@ const fetchSuggestions = async () => {
         </li>
       </ul>
     </div>
+    <div v-else-if="searchInput && suggestions.length === 0" class="mt-2 text-sm text-gray-500">
+      Aucun résultat trouvé pour « {{ searchInput }} »
+    </div>
+
   </div>
 
 </template>
