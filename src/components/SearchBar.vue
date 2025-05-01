@@ -1,6 +1,8 @@
 <script setup>
 
 import { ref } from 'vue'
+import { Search } from 'lucide-vue-next';
+
 
 
 const searchInput = ref('')
@@ -50,7 +52,7 @@ const fetchSuggestions = async () => {
       <input v-model="searchInput" @input="fetchSuggestions" type="text" placeholder="Search for a book..."
         class="border border-gray-300 p-2 rounded-l w-full " />
       <button @click="emitSearch" class="bg-blue-500 hover:bg-blue-600 text-white font-bold p-2 rounded-r">
-        Search
+        <Search class="w-5 h-5" />
       </button>
     </div>
 
