@@ -27,7 +27,7 @@ const selectSuggestion = (suggestion) => {
 const fetchSuggestions = async () => {
   try {
     // rappel: construire l'URL en fonction de ce que tape l'utilisateur avec le encodeURIComponent
-    const url = `https://openlibrary.org/search.json?q=${encodeURIComponent(searchInput.value)}&language=fre`;
+    const url = `https://openlibrary.org/search.json?q=${encodeURIComponent(searchInput.value)}`;
 
     // ensuite je dois faire la requête vers l'API
     const response = await fetch(url);
@@ -67,9 +67,10 @@ const fetchSuggestions = async () => {
         </li>
       </ul>
     </div>
-    <div v-else-if="searchInput && suggestions.length === 0" class="mt-2 text-sm text-gray-500">
-      Aucun résultat trouvé pour « {{ searchInput }} »
+    <div v-else-if="isSearchEmpty" class="mt-6 text-gray-500 text-sm">
+      Aucun résultat trouvé pour « {{ searchInput }} »
     </div>
+
 
   </div>
 
