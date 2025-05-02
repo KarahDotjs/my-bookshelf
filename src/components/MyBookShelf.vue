@@ -7,8 +7,7 @@ import { ref } from "vue";
 const searchQuery = ref("");
 
 const isSearchEmpty = ref(false);
-const isSearching = ref(false); // Optionnel, si tu veux un loader plus tard
-
+const isSearching = ref(false);
 
 const handleSearch = (userInput) => {
   searchQuery.value = userInput;
@@ -45,11 +44,13 @@ async function fetchBooks() {
   isSearching.value = true;
   try {
     const response = await fetch(
-      `https://openlibrary.org/search.json?q=${encodeURIComponent(searchQuery.value)}`
+      `https://openlibrary.org/search.json?q=${encodeURIComponent(
+        searchQuery.value
+      )}`
     );
     const data = await response.json();
 
-    const results = data.docs.filter(book => book.cover_i);
+    const results = data.docs.filter((book) => book.cover_i);
 
     books.value = results;
     isSearchEmpty.value = results.length === 0;
@@ -61,20 +62,22 @@ async function fetchBooks() {
     isSearching.value = false;
   }
 }
-
-
-
-
-
 </script>
 <template>
   <div class="min-h-screen bg-gray-100 py-8">
     <div class="max-w-screen-lg mx-auto px-4">
-      <h1 class="text-3xl font-bold text-center mt-10 mb-10">My BookShelf - Mon étagère de livres</h1>
-
+      <h1 class="text-3xl font-bold text-center mt-10 mb-10">
+        My BookShelf - Mon étagère de livres
+      </h1>
 
       <SearchBar @rechercher="handleSearch" />
-
+      <div v-if="isSearching" class="flex justify-center mt-6">
+        <svg class="animate-spin h-8 w-8 text-blue-600 mb-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+        </svg>
+      </div>
       <!-- Résultats de recherche -->
       <div class="mt-8">
         <div v-if="books.length" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -86,7 +89,6 @@ async function fetchBooks() {
           Aucun résultat trouvé pour « {{ searchQuery }} »
         </div>
       </div>
-
 
       <!-- Livres du mois -->
       <div class="mt-12 bg-gray-200 rounded-xl shadow px-6 py-10">
