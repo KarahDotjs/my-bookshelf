@@ -108,22 +108,25 @@ const addToLibrary = (book) => {
         </div>
       </div>
 
-      <!-- 📘 MA BIBLIOTHÈQUE PERSO -->
-      <div v-if="myLibrary.length" class="mt-12">
-        <h2 class="text-2xl font-bold mb-4 text-center">📘 Ma bibliothèque</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <BookCard v-for="book in myLibrary" :key="book.key" :title="book.title" :author="book.author_name"
-            :coverId="book.cover_i" :bookData="book" />
-        </div>
-      </div>
-
       <!-- 🏆 LIVRES DU MOIS -->
-      <div class="mt-12 bg-gray-200 rounded-xl shadow px-6 py-10">
-        <h2 class="text-2xl font-bold mb-4 text-center">🏆 Livres du mois</h2>
+      <div class="bg-gray-50 border border-gray-200 rounded-xl px-4 py-4 h-fit">
+        <h2 class="text-lg font-semibold mb-4 text-center text-gray-700">🏆 Livres du mois</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           <BookCard v-for="book in booksOfTheMonth" :key="book.key" :title="book.title" :author="book.author_name"
             :coverId="book.cover_i" :bookData="book" />
         </div>
+
+
+        <!-- 📘 MA BIBLIOTHÈQUE PERSO -->
+        <div v-if="myLibrary.length" class="mt-12">
+          <h2 class="text-2xl font-bold mb-4 text-center">📘 Ma bibliothèque</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <BookCard v-for="book in myLibrary" :key="book.key" :title="book.title" :author="book.author_name"
+              :coverId="book.cover_i" :bookData="book" />
+          </div>
+        </div>
+
+
       </div>
     </div>
   </div>
